@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import List from './components/List'
 
 import './App.css'
 
@@ -129,27 +130,7 @@ function App() {
         </form>
       </div>
 
-      <div className='user-list-container'>
-        <h3>User List</h3>
-        <ul className='user-list'>
-          {users.map(({ id, username, lastName, firstName }) => {
-            return (
-              <li key={id + username}>
-                <span>{id}</span>
-                <span>{username}</span>
-                <span>{firstName}</span>
-                <span>{lastName}</span>
-                <span>
-                  <button onClick={() => handleEdit(id)}>Edit</button>
-                </span>
-                <span>
-                  <button onClick={() => handleDelete(id)}>Delete</button>
-                </span>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+      <List users={users} onEdit={handleEdit} onDelete={handleDelete} />
     </div>
   )
 }
